@@ -227,6 +227,10 @@ export const router = createRouter({
 });
 
 router.beforeEach(async (to, _, next) => {
+  if (to.redirectedFrom?.fullPath == "/") {
+    window.location.replace("/app");
+    return;
+  }
   const authStore = useAuthStore();
   isCustomerPortal.value = to.meta.public || false;
   if (authStore.isLoggedIn) {
