@@ -223,12 +223,6 @@ def setup_customer_role(fresh_install=True):
         role_doc.desk_access = 0
         role_doc.save()
 
-    if fresh_install:
-        portal_settings = frappe.get_single("Portal Settings")
-        portal_settings.default_role = "HD Customer"
-        portal_settings.default_portal_home = "/helpdesk"
-        portal_settings.save()
-
 
 def add_website_settings_permission():
     doctype = "Website Settings"
